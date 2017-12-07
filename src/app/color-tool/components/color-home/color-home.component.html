@@ -33,3 +33,19 @@
 
 
 </form>
+
+<form [formGroup]="colorReactiveForm">
+
+  <div>
+    <label for="color-name2">Color Name:</label>
+    <input type="text" id="color-name2" formControlName="colorNameInput">
+  </div>
+
+  <div>
+    <label for="color-hexcode2">Color HexCode:</label>
+    <input type="text" id="color-hexcode2" formControlName="colorHexCodeInput">
+  </div>
+
+  <button type="button" (click)="showReactiveForm()">Save</button>
+
+</form>
