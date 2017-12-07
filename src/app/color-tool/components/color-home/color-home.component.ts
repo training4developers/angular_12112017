@@ -11,10 +11,19 @@ export class ColorHomeComponent {
 
   public headerText = 'Color Tool!';
 
+  public colorTemplateForm = {
+    colorName: '',
+    colorHexCode: '',
+  };
+
   public colors: Color[] = [
     { id: 1, name: 'red', hexCode: '#FF0000' },
     { id: 2, name: 'hot pink', hexCode: '#FF69B4' },
   ];
+
+  public showTemplateForm() {
+    console.log(this.colorTemplateForm);
+  }
 
 
 }
