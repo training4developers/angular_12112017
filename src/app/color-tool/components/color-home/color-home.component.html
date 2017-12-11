@@ -1,36 +1,4 @@
 <tool-header [headerText]="headerText"></tool-header>
 <data-table [config]="colorTableConfig" [data]="colors"></data-table>
-<form>
+<color-form (submitColor)="addColor($event)"></color-form>
 
-  <div>
-    <label for="color-name">Color Name:</label>
-    <input type="text" id="color-name" name="colorNameInput"
-      [(ngModel)]="colorTemplateForm.colorName">
-  </div>
-
-  <div>
-    <label for="color-hexcode">Color HexCode:</label>
-    <input type="text" id="color-hexcode" name="colorHexCodeInput"
-      [(ngModel)]="colorTemplateForm.colorHexCode">
-  </div>
-
-  <button type="button" (click)="showTemplateForm()">Save</button>
-
-
-</form>
-
-<form [formGroup]="colorReactiveForm">
-
-  <div>
-    <label for="color-name2">Color Name:</label>
-    <input type="text" id="color-name2" formControlName="colorNameInput">
-  </div>
-
-  <div>
-    <label for="color-hexcode2">Color HexCode:</label>
-    <input type="text" id="color-hexcode2" formControlName="colorHexCodeInput">
-  </div>
-
-  <button type="button" (click)="addColor()">Save</button>
-
-</form>

@@ -20,51 +20,18 @@ export class ColorHomeComponent {
     ]
   };
 
-  public colorTemplateForm = {
-    colorName: '',
-    colorHexCode: '',
-  };
-
-  public colorReactiveForm: FormGroup;
-
   public colors: Color[] = [
     { id: 1, name: 'red', hexCode: '#FF0000' },
     { id: 2, name: 'hot pink', hexCode: '#FF69B4' },
   ];
 
 
-  // private fb: FormBuilder;
+  public addColor(newColor: Color) {
 
-  // constructor(fb: FormBuilder) {
-  //   this.fb = fb;
-  // }
-
-  constructor(private fb: FormBuilder) {
-
-    this.colorReactiveForm = this.fb.group({
-      colorNameInput: '',
-      colorHexCodeInput: '',
-    });
-
-  }
-
-  public showTemplateForm() {
-    console.log(this.colorTemplateForm);
-  }
-
-  public showReactiveForm() {
-    console.log(this.colorReactiveForm.value);
-  }
-
-  public addColor() {
-
-    const color = {
+    this.colors = [ ...this.colors, {
       id: Math.max(...this.colors.map(c => c.id)) + 1,
-      name: this.colorReactiveForm.value.colorNameInput,
-      hexCode: this.colorReactiveForm.value.colorHexCodeInput,
-    };
-
-    this.colors = this.colors.concat(color);
+      ...newColor,
+    }];
   }
 
 }
