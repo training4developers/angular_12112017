@@ -1,6 +1,4 @@
-<header>
-  <h1>{{headerText}}</h1>
-</header>
+<tool-header [headerText]="headerText"></tool-header>
 <table>
   <thead>
     <tr>
@@ -46,6 +44,6 @@
     <input type="text" id="color-hexcode2" formControlName="colorHexCodeInput">
   </div>
 
-  <button type="button" (click)="showReactiveForm()">Save</button>
+  <button type="button" (click)="addColor()">Save</button>
 
 </form>

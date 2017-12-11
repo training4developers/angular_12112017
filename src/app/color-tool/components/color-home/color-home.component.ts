@@ -10,7 +10,7 @@ import { Color } from '../../models/color';
 })
 export class ColorHomeComponent {
 
-  public headerText = 'Color Tool!';
+  public headerText = 'Color Tool';
 
   public colorTemplateForm = {
     colorName: '',
@@ -46,6 +46,17 @@ export class ColorHomeComponent {
 
   public showReactiveForm() {
     console.log(this.colorReactiveForm.value);
+  }
+
+  public addColor() {
+
+    const color = {
+      id: Math.max(...this.colors.map(c => c.id)) + 1,
+      name: this.colorReactiveForm.value.colorNameInput,
+      hexCode: this.colorReactiveForm.value.colorHexCodeInput,
+    };
+
+    this.colors = this.colors.concat(color);
   }
 
 }
