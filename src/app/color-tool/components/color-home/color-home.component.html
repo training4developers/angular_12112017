@@ -1,18 +1,5 @@
 <tool-header [headerText]="headerText"></tool-header>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>HexCode</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let color of colors; let i = index">
-      <td>{{i}} {{color.name}}</td>
-      <td>{{color.hexCode}}</td>
-    </tr>
-  </tbody>
-</table>
+<data-table [config]="colorTableConfig" [data]="colors"></data-table>
 <form>
 
   <div>

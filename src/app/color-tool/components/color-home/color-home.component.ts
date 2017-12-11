@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
+import { DataTableConfig } from '../../../shared-module/shared-module.module';
 import { Color } from '../../models/color';
 
 @Component({
@@ -11,6 +12,13 @@ import { Color } from '../../models/color';
 export class ColorHomeComponent {
 
   public headerText = 'Color Tool';
+
+  public colorTableConfig: DataTableConfig = {
+    cols: [
+      { header: 'Name', field: 'name' },
+      { header: 'HexCode', field: 'hexCode' },
+    ]
+  };
 
   public colorTemplateForm = {
     colorName: '',
