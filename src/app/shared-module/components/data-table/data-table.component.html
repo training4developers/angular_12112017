@@ -7,7 +7,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr data-view-row *ngFor="let item of data"
-      [config]="config" [item]="item"></tr>
+    <ng-template ngFor [ngForOf]="data" let-item>
+      <tr data-view-row [config]="config" [item]="item"></tr>
+    </ng-template>
   </tbody>
 </table>
