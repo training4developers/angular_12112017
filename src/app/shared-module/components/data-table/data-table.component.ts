@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { DataTableConfig } from '../../models/data-table-config';
 
@@ -14,6 +14,14 @@ export class DataTableComponent implements OnInit {
 
   @Input()
   data: any[] = [];
+
+  @Output()
+  save = new EventEmitter<any>();
+
+  @Output()
+  delete = new EventEmitter<number>();
+
+  editItemId = 0;
 
   constructor() { }
 

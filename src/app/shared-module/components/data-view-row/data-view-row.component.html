@@ -1,0 +1,5 @@
+<td *ngFor="let col of config.cols">{{item[col.field]}}</td>
+<td>
+  <button type="button" (click)="edit.emit(item.id)">Edit</button>
+  <button type="button" (click)="delete.emit(item.id)">Delete</button>
+</td>

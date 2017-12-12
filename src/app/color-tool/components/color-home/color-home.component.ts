@@ -34,4 +34,29 @@ export class ColorHomeComponent {
     }];
   }
 
+  public saveColor(editColor: Color) {
+
+    const editIndex = this.colors.findIndex(c =>
+      c.id === editColor.id);
+
+    this.colors = [
+      ...this.colors.slice(0, editIndex),
+      editColor,
+      ...this.colors.slice(editIndex + 1),
+    ];
+  }
+
+  public deleteColor(colorId: number) {
+
+    const editIndex = this.colors.findIndex(c =>
+      c.id === colorId);
+
+    this.colors = [
+      ...this.colors.slice(0, editIndex),
+      ...this.colors.slice(editIndex + 1),
+    ];
+
+
+  }
+
 }

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DataTableRowComponent } from './data-table-row.component';
+import { DataViewRowComponent } from './data-view-row.component';
 
-describe('DataTableRowComponent', () => {
-  let component: DataTableRowComponent;
-  let fixture: ComponentFixture<DataTableRowComponent>;
+describe('DataViewRowComponent', () => {
+  let component: DataViewRowComponent;
+  let fixture: ComponentFixture<DataViewRowComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DataTableRowComponent ]
+      declarations: [ DataViewRowComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DataTableRowComponent);
+    fixture = TestBed.createComponent(DataViewRowComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

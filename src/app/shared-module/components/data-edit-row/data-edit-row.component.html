@@ -1,0 +1,6 @@
+<td><input type="text" [(ngModel)]="editColor.name" name="editColorNameInput"></td>
+<td><input type="text" [(ngModel)]="editColor.hexCode" name="editColorHexCodeInput"></td>
+<td>
+  <button type="button" (click)="save.emit(this.editColor)">Save</button>
+  <button type="button" (click)="cancel.emit()">Cancel</button>
+</td>
