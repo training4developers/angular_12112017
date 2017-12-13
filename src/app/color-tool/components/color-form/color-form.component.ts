@@ -11,6 +11,8 @@ import { Color } from '../../models/color';
 export class ColorFormComponent implements OnInit, DoCheck {
 
   public formHeaderText = 'Color Form';
+  public sampleObject = { id: 1, name: 'Bob' };
+  public todayDate = new Date();
   public colorForm: FormGroup;
 
   @Input()
