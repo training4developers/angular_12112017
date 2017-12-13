@@ -1,8 +1,13 @@
 <form [formGroup]="colorForm">
 
+  <header>
+    <h2>{{formHeaderText | myUpperCase | myAppend:'!!!!':'????'}}</h2>
+  </header>
+
   <div>
     <label for="color-name">Color Name:</label>
     <input type="text" id="color-name" formControlName="colorNameInput">
+    {{colorForm.controls.colorNameInput.value}}
   </div>
 
   <div>

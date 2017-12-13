@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, DoCheck } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { Color } from '../../models/color';
@@ -8,8 +8,9 @@ import { Color } from '../../models/color';
   templateUrl: './color-form.component.html',
   styleUrls: ['./color-form.component.css']
 })
-export class ColorFormComponent implements OnInit {
+export class ColorFormComponent implements OnInit, DoCheck {
 
+  public formHeaderText = 'Color Form';
   public colorForm: FormGroup;
 
   @Input()
@@ -26,6 +27,10 @@ export class ColorFormComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ngDoCheck() {
+    console.log('running change detection');
   }
 
   handleColorFormButtonClick() {
