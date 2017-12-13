@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
+import { ColorsService } from '../../services/colors.service';
 import { DataTableConfig } from '../../../shared-module/shared-module.module';
 import { Color } from '../../models/color';
 
@@ -9,7 +10,7 @@ import { Color } from '../../models/color';
   templateUrl: './color-home.component.html',
   styleUrls: ['./color-home.component.css']
 })
-export class ColorHomeComponent {
+export class ColorHomeComponent implements OnInit {
 
   public headerText = 'Color Tool';
 
@@ -20,11 +21,13 @@ export class ColorHomeComponent {
     ]
   };
 
-  public colors: Color[] = [
-    { id: 1, name: 'red', hexCode: '#FF0000' },
-    { id: 2, name: 'hot pink', hexCode: '#FF69B4' },
-  ];
+  public colors: Color[] = [];
 
+  constructor(private colorsSvc: ColorsService) { }
+
+  public ngOnInit() {
+    this.colorsSvc.all().then(colors => this.colors = colors);
+  }
 
   public addColor(newColor: Color) {
 
