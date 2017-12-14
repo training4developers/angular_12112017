@@ -1,22 +1,5 @@
 <form [formGroup]="colorForm">
 
-  <header>
-    <h2>{{formHeaderText | myUpperCase | myAppend:'!!!!':'????'}}</h2>
-  </header>
-
-  <div>
-    <h3>Built-In Pipes</h3>
-    Number Pipe: {{ 1000 | number }}<br>
-    Curreny Pipe: {{ 1000 | currency:'USD':'symbol'}}<br>
-    Date Pipe: {{ todayDate | date:'long' }}<br>
-    JSON Pipe: {{ sampleObject | json}}<br>
-    Upper Case: {{ 'cool' | uppercase }}<br>
-    Lower Case: {{ 'COOL' | lowercase }}<br>
-    Title: {{ 'cool' | titlecase }}<br>
-    Slice: {{ [1,2,3,4] | slice: 1:3 }}<br>
-  </div>
-  <br><br>
-
   <div>
     <label for="color-name">Color Name:</label>
     <input type="text" id="color-name" formControlName="colorNameInput">

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
-import { ColorsService } from '../../services/colors.service';
-import { DataTableConfig } from '../../../shared-module/shared-module.module';
+import { DataTableConfig } from '../../../shared/shared.module';
 import { Color } from '../../models/color';
+
+import { ColorsService } from '../../services/colors.service';
 
 @Component({
   selector: 'color-home',
@@ -23,7 +24,9 @@ export class ColorHomeComponent implements OnInit {
 
   public colors: Color[] = [];
 
-  constructor(private colorsSvc: ColorsService) { }
+  constructor(
+    private colorsSvc: ColorsService,
+  ) { }
 
   public ngOnInit() {
     this.colorsSvc.all().then(colors => this.colors = colors);

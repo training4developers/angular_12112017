@@ -19,4 +19,4 @@ export { DataTableConfig, DataColConfig };
   declarations: [ToolHeaderComponent, DataTableComponent, DataViewRowComponent, DataEditRowComponent],
   exports: [ToolHeaderComponent, DataTableComponent],
 })
-export class SharedModuleModule { }
+export class SharedModule { }

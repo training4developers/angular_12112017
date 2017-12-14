@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { ColorToolModule } from './color-tool/color-tool.module';
-import { DemoToolModule } from './demo-tool/demo-tool.module';
+import { FormDemoModule } from './form-demo/form-demo.module';
 
 import { AppComponent } from './app.component';
 
@@ -12,9 +12,12 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule, ColorToolModule, DemoToolModule,
+    BrowserModule, ColorToolModule, FormDemoModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+// '^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$'
