@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, AbstractControl, Validators } from '@angular/forms';
+import { Component, OnInit, ViewChild, AfterViewInit, Directive, forwardRef } from '@angular/core';
+import {
+  FormGroup, FormBuilder, AbstractControl,
+  Validators, NgForm, NG_ASYNC_VALIDATORS,
+  AsyncValidator } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { AbstractClassPart } from '@angular/compiler/src/output/output_ast';
 
 interface Product {
   id: number;
@@ -20,15 +24,41 @@ const serialNumberValidatorFactory = (httpClient: HttpClient) => {
   return serialNumberValidator;
 };
 
+@Directive({
+  selector: 'input[serial-number][ngModel]',
+  providers: [
+    {
+      provide: NG_ASYNC_VALIDATORS,
+      useExisting: forwardRef(() => SerialNumberValidatorDirective),
+      multi: true,
+    },
+  ]
+})
+export class SerialNumberValidatorDirective implements AsyncValidator {
+
+  private validatorFn: (c: AbstractControl) => Promise<any>;
+
+  constructor(private httpClient: HttpClient) {
+    this.validatorFn = serialNumberValidatorFactory(this.httpClient);
+  }
+
+  validate(c: AbstractControl) {
+    return this.validatorFn(c);
+  }
+
+}
 
 @Component({
   selector: 'product-support-form',
   templateUrl: './product-support-form.component.html',
   styleUrls: ['./product-support-form.component.css']
 })
-export class ProductSupportFormComponent implements OnInit {
+export class ProductSupportFormComponent implements OnInit, AfterViewInit {
 
   public form: FormGroup;
+
+  @ViewChild(NgForm)
+  productTemplateForm: NgForm;
 
   constructor(
     private fb: FormBuilder,
@@ -37,6 +67,7 @@ export class ProductSupportFormComponent implements OnInit {
 
     this.form = this.fb.group({
       serialNumberInput: [ '', {
+        // updateOn: 'submit',
         validators: [ Validators.required ],
         asyncValidators: [ serialNumberValidatorFactory(this.httpClient) ]
       }],
@@ -46,6 +77,10 @@ export class ProductSupportFormComponent implements OnInit {
 
   ngOnInit() {
     console.dir(this.form);
+  }
+
+  ngAfterViewInit() {
+    console.dir(this.productTemplateForm);
   }
 
 }
