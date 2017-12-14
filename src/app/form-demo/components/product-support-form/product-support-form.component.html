@@ -1,0 +1,14 @@
+<form [formGroup]="form">
+
+  <div>
+    <label>Produce Serial Number:</label>
+    <input type="text" formControlName="serialNumberInput">
+    <span *ngIf="form.controls.serialNumberInput.errors?.serialNumber">
+      Invalid serial number
+    </span>
+    <span *ngIf="form.controls.serialNumberInput.errors?.required">
+      Please enter a serial number.
+    </span>
+  </div>
+
+</form>

@@ -1,9 +1,11 @@
 import { Component, OnInit, Directive } from '@angular/core';
 
-import { AbstractControl, FormGroup, FormBuilder, FormControl, Validators, NG_VALIDATORS } from '@angular/forms';
+import {
+  AbstractControl, FormGroup, FormBuilder,
+  FormControl, Validators, NG_VALIDATORS
+} from '@angular/forms';
 
 const phoneValidator = (c: AbstractControl) => {
-
   if (c.value == null || String(c.value).length === 0) {
     return null;
   }
