@@ -2,17 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { ColorToolModule } from './color-tool/color-tool.module';
-import { FormDemoModule } from './form-demo/form-demo.module';
 
 import { AppComponent } from './app.component';
 
-
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
-    BrowserModule, ColorToolModule, FormDemoModule,
+    BrowserModule, ColorToolModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
