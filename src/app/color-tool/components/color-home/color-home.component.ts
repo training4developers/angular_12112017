@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
+import { map, filter } from 'rxjs/operators';
 
 import { DataTableConfig } from '../../../shared/shared.module';
 import { Color, ColorEvent } from '../../models/color';
@@ -25,12 +26,33 @@ export class ColorHomeComponent implements OnInit {
     ]
   };
 
+  public nums: Observable<number>;
+
+  public nums2: Observable<number>;
+
   public colors: Color[] = [];
 
 
   constructor(
     private colorsSvc: ColorsService,
-  ) { }
+  ) {
+
+    this.nums = Observable.create( (observer: Observer<number>) => {
+
+      const webSocket = new WebSocket('ws://localhost:3030');
+
+      webSocket.addEventListener('message', msg => {
+        observer.next(msg.data);
+      });
+
+    } );
+
+    this.nums2 = this.nums.pipe(
+      map(n => n * 2),
+      filter(n => n % 4 === 0)
+    );
+
+  }
 
   public refreshColors() {
     return this.colorsSvc.all().then(colors => this.colors = colors);
