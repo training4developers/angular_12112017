@@ -1,4 +1,4 @@
 <tool-header [headerText]="headerText"></tool-header>
 <data-table [config]="colorTableConfig" [data]="colors"
   (save)="saveColor($event)" (delete)="deleteColor($event)"></data-table>
-<color-form (submitColor)="addColor($event)"></color-form>
+<color-form (submitColor)="addColor($event)" [resetForm]="resetForm"></color-form>

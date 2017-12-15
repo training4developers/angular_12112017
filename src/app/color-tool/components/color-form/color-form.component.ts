@@ -1,7 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter, DoCheck } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { Observable } from 'rxjs/Observable';
 
-import { Color } from '../../models/color';
+import { Color, ColorEvent } from '../../models/color';
 
 @Component({
   selector: 'color-form',
@@ -18,8 +19,11 @@ export class ColorFormComponent implements OnInit, DoCheck {
   @Input()
   buttonLabel = 'Save';
 
+  @Input()
+  resetForm: Observable<void>;
+
   @Output()
-  submitColor = new EventEmitter<Color>();
+  submitColor = new EventEmitter<ColorEvent>();
 
   constructor(private fb: FormBuilder) {
     this.colorForm = this.fb.group({
@@ -29,6 +33,9 @@ export class ColorFormComponent implements OnInit, DoCheck {
   }
 
   ngOnInit() {
+    this.resetForm.subscribe(() => {
+      this.colorForm.reset();
+    });
   }
 
   ngDoCheck() {
@@ -36,10 +43,20 @@ export class ColorFormComponent implements OnInit, DoCheck {
   }
 
   handleColorFormButtonClick() {
+
+    // this.submitColor.subscribe(() => {
+    //   console.log('submit color emit called');
+    // });
+
     this.submitColor.emit({
-      name: this.colorForm.value.colorNameInput,
-      hexCode: this.colorForm.value.colorHexCodeInput,
+      color: {
+        name: this.colorForm.value.colorNameInput,
+        hexCode: this.colorForm.value.colorHexCodeInput,
+      },
+      cb: () => {}, // this.colorForm.reset(),
     });
+
+
   }
 
 }

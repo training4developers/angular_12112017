@@ -4,3 +4,8 @@ export interface Color {
   hexCode: string;
 }
 
+export interface ColorEvent {
+  color: Color;
+  cb: () => void;
+}
+

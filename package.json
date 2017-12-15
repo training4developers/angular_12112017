@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "concurrently \"ng serve\" \"npm run rest\"",
+    "start": "concurrently \"ng serve\"",
     "rest": "json-server --watch --port 3050 db.json",
     "websockets": "node ./web-sockets.js",
     "build": "ng build",

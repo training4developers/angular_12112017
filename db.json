@@ -1,12 +1,46 @@
 {
   "colors": [
-    { "id": 1, "name": "red", "hexCode": "#ff0000" },
-    { "id": 2, "name": "green", "hexCode": "#00ff00" },
-    { "id": 3, "name": "blue", "hexCode": "#0000ff" }
+    {
+      "id": 1,
+      "name": "red",
+      "hexCode": "#ff0000"
+    },
+    {
+      "id": 2,
+      "name": "green",
+      "hexCode": "#00ff00"
+    },
+    {
+      "id": 3,
+      "name": "blue",
+      "hexCode": "#0000ff"
+    },
+    {
+      "name": "test",
+      "hexCode": "test",
+      "id": 4
+    },
+    {
+      "name": "test2",
+      "hexCode": "test2",
+      "id": 5
+    }
   ],
   "products": [
-    { "id": 1, "serialNumber": 120000, "name": "Blender" },
-    { "id": 2, "serialNumber": 130000, "name": "Toaster" },
-    { "id": 3, "serialNumber": 140000, "name": "Coffee Maker" }
+    {
+      "id": 1,
+      "serialNumber": 120000,
+      "name": "Blender"
+    },
+    {
+      "id": 2,
+      "serialNumber": 130000,
+      "name": "Toaster"
+    },
+    {
+      "id": 3,
+      "serialNumber": 140000,
+      "name": "Coffee Maker"
+    }
   ]
 }

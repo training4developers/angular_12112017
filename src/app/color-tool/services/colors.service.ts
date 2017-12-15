@@ -32,7 +32,10 @@ export class ColorsService {
   }
 
   public insert(color: Color) {
-    return this.httpClient.post<Color>(this.getCollectionURL(), color).toPromise();
+    return this.httpClient.post<Color>(this.getCollectionURL(), color).toPromise().catch(err => {
+      // write some logging code...
+      return Promise.reject(err);
+    });
   }
 
   public replace(color: Color) {
